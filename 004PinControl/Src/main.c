@@ -25,7 +25,8 @@ int main(void)
 	*pGPIOAModeReg &= ~(3<<10); //Clearing GPIOA pin 5 (LD2) mode to 00 first
 	*pGPIOAModeReg |= (1<<10); //setting GPIOA pin 5 mode to 01->O/P
 
-	*pGPIOAModeReg &= ~(0x00000003); //Clearing GPIOA pin 0 mode to 00 (INPUT)
+	*pGPIOAModeReg &= ~(0x0F); //Clearing GPIOA pin 0 and 1 to 00 (INPUT) mode
+	*pGPIOAModeReg |= (1<<2);
 
 
 	while(1)
@@ -33,10 +34,12 @@ int main(void)
 		if((*pGPIOAInDataReg & 0x01)) //(*pGPIOAInDataReg & 0x01) extracts the LSB ie GPIOA pin-0
 		{
 			*pGPIOAOutDataReg |= (1<<5); // Set GPIOA pin-5 HIGH
+			*pGPIOAOutDataReg |= (1<<1); // Set GPIOA pin-1 HIGH
 		}
 		else
 		{
 			*pGPIOAOutDataReg &= ~(1<<5); // Set GPIOA pin-5 LOW
+			*pGPIOAOutDataReg &= ~(1<<1); // Set GPIOA pin-1 LOW
 		}
 	}
 }
