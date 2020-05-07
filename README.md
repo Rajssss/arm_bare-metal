@@ -9,6 +9,7 @@ Currently this repo contains projects for:-
 ->SizeOf: Gives the idea of various data type sizes on Cortex M4.  
 ->LEDControl: Control On-Board LED of STM32 Nucleo.  
 ->PinControl: Control the GPIO Pins along with On-Board LED.  
-->GPIOPeripheral: Full GPIO API of STM32F446RE-Nucelo board only. (WIP)  
+->GPIOPeripheral: Full GPIO API of STM32F446RE-Nucelo board only.  
+ (Included in my seperate driver repo : https://github.com/Rajssss/stm32_nucleo_drivers)   
 
 More coming soon......  
